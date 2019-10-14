@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component
+	name="SearchPage"
+	extends="Group">
+	<interface>
+		<field
+			id="data"
+			type="node" />
+	</interface>
+	<script
+		type="text/brightscript"
+		uri="pkg:/components/SearchPage/SearchPage.brs" />
+	<script
+		type="text/brightscript"
+		uri="pkg:/source/Utilities/Utilities.brs" />
+	<children>
+		<Poster
+			id="background"
+			width="1280"
+			height="720"
+			uri="pkg:/images/SearchPageImages/backgroundImage.jpg" />
+		<Group id="viewContainer">
+			<Keyboard
+				id="keyboard"
+				translation="[170, 135]" />
+		</Group>
+		<Timer
+			id="searchQueryTimeout"
+			duration="5" />
+	</children>
+</component>
