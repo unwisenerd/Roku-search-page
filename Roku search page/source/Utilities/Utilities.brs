@@ -1,3 +1,6 @@
+'Different useful utility functions;
+
+'Creating data request via callback;
 Function Utils_CreateDataRequest(name as String, onResult as Object, params = invalid as Object, onError = "" as String) as Object
     request = createObject("roSGNode", "DataRequest")
     'specifying function that will get proper data
@@ -32,6 +35,7 @@ Function Utils_CreateDataRequest(name as String, onResult as Object, params = in
     return request
 End Function
 
+'firing data requet to global - then catching it in main on observed port;
 sub Utils_fireEvent(eventType as String, data = invalid as Dynamic)
     getGlobalAA().global.event = {
         type: eventType
@@ -94,6 +98,18 @@ Function Utils_AAToContentNode(inputAA = {} as Object, nodeType = "ContentNode" 
     item.addFields(newFields)
     
     return item
+End Function
+
+'converts array of AAs to content node with child content nodes
+Function Utils_ContentList2Node(contentList as Object) as Object
+    result = createObject("roSGNode","ContentNode")
+
+    for each itemAA in contentList
+        item = Utils_AAToNodeTree(itemAA)
+        result.appendChild(item)
+    end for
+
+    return result
 End Function
 
 Function Utils_IsSGNode(value As Dynamic) As Boolean

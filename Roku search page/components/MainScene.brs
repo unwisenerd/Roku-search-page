@@ -5,6 +5,7 @@ sub init()
 End sub
 
 sub ShowSearchPage()
+    'Creating and appending Search Page to Main Scene;
     m.searchPage = CreateObject("roSGNode", "SearchPage")
     m.top.AppendChild(m.searchPage)
     m.searchPage.SetFocus(true)

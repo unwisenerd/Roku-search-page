@@ -1,4 +1,4 @@
-title=Test Search Page
+title=OMDB Search Page
 major_version=1
 minor_version=0
 build_version=1
@@ -6,5 +6,8 @@ ui_resolutions=hd
 splash_screen_fhd=pkg:/images/fhd/splash_fhd.png
 splash_screen_hd=pkg:/images/hd/splash_hd.png
 splash_screen_sd=pkg:/images/sd/splash_sd.png
+mm_icon_focus_fhd=pkg:/images/mm_icon_focus_hd.jpg
+mm_icon_focus_hd=pkg:/images/mm_icon_focus_hd.jpg
+mm_icon_focus_sd=pkg:/images/mm_icon_focus_hd.jpg
 splash_color=#000000
 splash_min_time=0

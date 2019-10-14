@@ -4,19 +4,20 @@ function InitApiConsumer() as Object
         dataRequestUrl            :   "http://www.omdbapi.com/"
         GetSearchQueryData        :   ApiConsumer_GetSearchQueryData
     }
-
     return this
 end function
 
 function ApiConsumer_GetSearchQueryData(event as Object)
     params = event.params
     query = Utils_AsString(params.searchQuery)
+    contentType = Utils_AsString(params.type)
     url = m.dataRequestUrl + "?apikey=" + m.apikey + "&s=" + query
-
+    if not Utils_IsNullOrEmpty(contentType) then url += "&type=" + contentType
+    
     response = ApiConnsumer_RequestData(url)
     if response <> invalid
         json = ParseJson(response)
-        parsedResult = ParseQuearyResults(json)
+        parsedResult = ParseQueryResults(json)
         
         if parsedResult <> invalid
             event.result = parsedResult
@@ -24,6 +25,7 @@ function ApiConsumer_GetSearchQueryData(event as Object)
     end if
 end function
 
+'Requesting data synchronously;
 function ApiConnsumer_RequestData(url as String) as Object
     result = invalid
     if not Utils_IsNullOrEmpty(url)
@@ -34,6 +36,5 @@ function ApiConnsumer_RequestData(url as String) as Object
 
         result = request.GetToString()
     end if
-    
     return result
 end function

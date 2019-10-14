@@ -1,4 +1,5 @@
-function ParseQuearyResults(json as Object)as Object
+'Properly parsing searched query results;
+function ParseQueryResults(json as Object)as Object
     result = {
         totalItems: 0,
         childrenArr: []
@@ -12,7 +13,7 @@ function ParseQuearyResults(json as Object)as Object
                 title: Utils_AsString(item.title)
                 type: Utils_AsString(item.type)
                 year: Utils_AsString(item.year)
-                poster: Utils_AsString(item.poster)
+                posterUri: Utils_AsString(item.poster)
                 imdbID: Utils_AsString(item.imdbID)
             }
             
