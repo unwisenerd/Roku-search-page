@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component
+	name="SearchPage"
+	extends="Group">
+	<interface>
+		<field
+			id="data"
+			type="node" />
+	</interface>
+	<script
+		type="text/brightscript"
+		uri="pkg:/components/SearchPage/SearchPage.brs" />
+	<script
+		type="text/brightscript"
+		uri="pkg:/source/Utilities/Utilities.brs" />
+	<script
+		type="text/brightscript"
+		uri="pkg:/components/LoadingSpinner/Spinner.brs" />
+	<children>
+		<Poster
+			id="background"
+			width="1280"
+			height="720"
+			uri="pkg:/images/SearchPageImages/backgroundImage.jpg" />
+		<Group id="viewContainer">
+			<Keyboard
+				id="keyboard"
+				translation="[170, 135]" />
+			<Label
+				id="searchInfoLabel"
+				translation="[140, 500]"
+				width="1000"
+				height="100"
+				horizAlign="center"
+				vertAlign="center"
+				color="#ffffff"
+				visible="false" />
+			<MarkupGrid
+				id="filtersList"
+				translation="[184, 450]"
+				itemComponentName="SearchFilterItem"
+				itemSize="[150, 50]"
+				columnSpacings="[450, 12]"
+				numRows="1"
+				numColumns="3"
+				drawFocusFeedback="true"
+				drawFocusFeedbackOnTop="true"
+				focusBitmapUri="pkg:/images/SearchPageImages/focus.9.png"
+				vertFocusAnimationStyle="floatingFocus" />
+			<MarkupGrid
+				id="resultsGrid"
+				translation="[142, 550]"
+				itemComponentName="SearchResultItem"
+				itemSize="[156, 250]"
+				itemSpacing="[12, 12]"
+				numRows="128"
+				numColumns="6"
+				drawFocusFeedback="true"
+				drawFocusFeedbackOnTop="true"
+				focusBitmapUri="pkg:/images/SearchPageImages/focus.9.png"
+				vertFocusAnimationStyle="floatingFocus" />
+		</Group>
+		<Animation
+			id="slideViewAnimation"
+			duration="1.0">
+			<Vector2DFieldInterpolator
+				id="slideViewAnimationInterpolator"
+				key="[0.0, 1.0]"
+				fieldToInterp="viewContainer.translation" />
+		</Animation>
+	</children>
+</component>

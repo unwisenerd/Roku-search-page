@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component
+	name="SearchResultItem"
+	extends="Group">
+	<interface>
+		<field
+			id="itemContent"
+			type="node"
+			onChange="OnItemContentChange" />
+	</interface>
+	<script
+		type="text/brightscript"
+		uri="pkg:/components/ItemComponents/SearchResultItem/SearchResultItem.brs" />
+	<script
+		type="text/brightscript"
+		uri="pkg:/source/Utilities/Utilities.brs" />
+	<children>
+		<Poster
+			id="itemPoster"
+			width="156"
+			height="250"
+			loadingBitmapUri="pkg:/images/SearchPageImages/thumbnail_placeholder.png"
+			failedBitmapUri="pkg:/images/SearchPageImages/failed_poster.png" />
+		<Rectangle
+			id="background"
+			translation="[0, 210]"
+			width="156"
+			height="41"
+			color="#000000"
+			opacity="0.9" />
+		<ScrollingLabel
+			id="titleLabel"
+			translation="[3, 217]"
+			maxWidth="145"
+			height="25"
+			horizAlign="center"
+			vertAlign="cener"
+			color="#808080"/>
+	</children>
+</component>
